@@ -1,6 +1,7 @@
 package com.ymk.dynamic;
 
 import com.ymk.dynamic.config.DynamicDataSource;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +19,7 @@ import java.util.Map;
  * mkyoung
  **/
 @SpringBootApplication
+@MapperScan(basePackages = {"com.ymk.dy.dynamic.mapper"})
 public class DynamincApplication {
 
     public static void main(String[] args) {
@@ -27,6 +29,7 @@ public class DynamincApplication {
     @Primary
     @Bean("defaultDataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
+
     public DataSource dataSource() {
         // 配置数据源（注意，我使用的是 HikariCP 连接池），以上注解是指定数据源，否则会有冲突
         return DataSourceBuilder.create().build();

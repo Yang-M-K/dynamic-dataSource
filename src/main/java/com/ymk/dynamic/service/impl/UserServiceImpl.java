@@ -1,8 +1,9 @@
 package com.ymk.dynamic.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ymk.dynamic.entity.UserEntity;
 import com.ymk.dynamic.entity.UserRoleEntity;
-import com.ymk.dynamic.exception.ServiceException;
+import com.ymk.dynamic.mapper.UserEntityMapper;
 import com.ymk.dynamic.repository.UserRepository;
 import com.ymk.dynamic.repository.UserRoleRepository;
 import com.ymk.dynamic.service.UserService;
@@ -16,7 +17,7 @@ import java.util.List;
  * mkyoung
  **/
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserEntityMapper,UserEntity> implements UserService{
 
     @Autowired
     private UserRepository userRepository;
@@ -25,10 +26,10 @@ public class UserServiceImpl implements UserService {
     private UserRoleRepository userRoleRepository;
 
     public List<UserEntity> findAll() {
-        throw new ServiceException("异常");
-     /*   List<UserEntity> all = userRepository.findAll();
+        UserEntity byId = getById(1);
+        List<UserEntity> all = userRepository.findAll();
 //        findRole();
-        return all;*/
+        return all;
     }
 
     private void findRole(){

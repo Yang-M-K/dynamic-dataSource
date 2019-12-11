@@ -19,8 +19,7 @@ public class TestController {
 
     @RequestMapping("test")
     public Object test(){
-        throw new ServiceException("123");
- //       return userService.findAll();
+       return userService.findAll();
     }
 
 

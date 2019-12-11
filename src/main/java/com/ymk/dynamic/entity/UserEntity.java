@@ -1,5 +1,6 @@
 package com.ymk.dynamic.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Persistable;
@@ -18,6 +19,7 @@ import java.math.BigInteger;
 @Entity
 @NoArgsConstructor
 @Table(name="tb_user")
+@TableName("tb_user")
 public class UserEntity implements Persistable<String>, Serializable {
 
     @Id
